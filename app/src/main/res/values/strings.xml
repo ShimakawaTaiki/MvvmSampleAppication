@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MvvmSampleAppication</string>
+    <string name="label_title">今日は何歩歩いた？</string>
+    <string name="edit_step">歩数を入力</string>
+    <string name="label_step">歩</string>
+    <string name="resist">登録</string>
+    <string name="menu_label_add_record">記録を追加</string>
 </resources>
