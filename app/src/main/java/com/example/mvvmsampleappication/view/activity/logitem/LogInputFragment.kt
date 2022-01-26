@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mvvmsampleappication.R
+import com.example.mvvmsampleappication.clearTime
 import com.example.mvvmsampleappication.data.LEVEL
 import com.example.mvvmsampleappication.data.StepCountLog
 import com.example.mvvmsampleappication.data.WEATHER
 import com.example.mvvmsampleappication.getDateStringYMD
+import com.example.mvvmsampleappication.view.alert.ErrorDialog
 import com.example.mvvmsampleappication.viewmodel.LogItemViewModel
 import kotlinx.android.synthetic.main.fragment_log_input.*
 import kotlinx.android.synthetic.main.fragment_log_input.view.*
@@ -21,6 +24,7 @@ import java.util.*
  */
 class LogInputFragment : Fragment() {
     lateinit var viewModel: LogItemViewModel
+    private val today = Calendar.getInstance().clearTime()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +40,11 @@ class LogInputFragment : Fragment() {
 
         // 登録ボタンのクリックリスナー
         contentView.button_resist.setOnClickListener {
+            validation()?.let {
+                val fgm = requireActivity().supportFragmentManager ?: return@setOnClickListener
+                ErrorDialog.Builder().message(it).create().show(fgm, null)
+                return@setOnClickListener
+            }
             val dateText = date_text.text.toString()
             val stepCount = edit_step.text.toString().toInt()
             val level = levelFromRadioId(radio_group.checkedRadioButtonId)
@@ -57,11 +66,11 @@ class LogInputFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider.NewInstanceFactory().create(LogItemViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory()).get(LogItemViewModel::class.java)
 
         // 日付の選択を監視
-        viewModel.selectDate.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            date_text.text = it.getDateStringYMD()
+        viewModel.selectDate.observe(viewLifecycleOwner, Observer { calendar ->
+            date_text.text = calendar.getDateStringYMD()
         })
     }
 
@@ -83,6 +92,11 @@ class LogInputFragment : Fragment() {
         return WEATHER.values()[selectedItemPosition]
     }
 
+    private fun validation(): Int? {
+        val selectDate = viewModel.selectDate.value?.clearTime()
+        return logInputValidation(today, selectDate, edit_step.text.toString())
+    }
+
     companion object {
         const val DATE_SELECT_TAG = "date_select"
         fun newInstance(): LogInputFragment {
@@ -90,4 +104,18 @@ class LogInputFragment : Fragment() {
             return fragment
         }
     }
+}
+
+fun logInputValidation(today: Calendar, selectDate: Calendar?, stepCountText: String?): Int? {
+    if (today.before(selectDate)) {
+        // 今日より未来の日付の場合のエラーメッセージ
+        return R.string.error_validation_future_date
+    }
+
+    // ステップ数が1以上入力されていること
+    if (stepCountText.isNullOrEmpty()) {
+        return R.string.error_validation_empty_count
+    }
+
+    return null
 }

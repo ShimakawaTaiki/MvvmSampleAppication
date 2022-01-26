@@ -35,7 +35,7 @@ class LogItemActivity : AppCompatActivity() {
                 .commitNow()
         }
 
-        viewModel.stepCountLog.observe(this, Observer { stepCountLog ->
+        viewModel.stepCountLog.observe(this, { stepCountLog ->
             val dataIntent = Intent()
             dataIntent.putExtra(EXTRA_KEY_DATA, stepCountLog)
             setResult(RESULT_OK, dataIntent)

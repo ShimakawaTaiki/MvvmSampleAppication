@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MvvmSampleAppication</string>
     <string name="label_title">今日は何歩歩いた？</string>
-    <string name="edit_step">歩数を入力</string>
+    <string name="hint_edit_step">歩数を入力</string>
     <string name="label_step">歩数</string>
     <string name="resist">登録</string>
     <string name="menu_label_add_record">記録を追加</string>
@@ -21,4 +21,8 @@
     <string name="level_good">頑張った</string>
     <string name="level_bad">悪い</string>
     <string name="label_weather">天気</string>
+    <string name="error_validation_empty_count">1歩以上入力してください</string>
+    <string name="error_validation_future_date">未来の日付は入力できません</string>
+    <string name="error">エラー</string>
+    <string name="close">閉じる</string>
 </resources>
