@@ -2,7 +2,23 @@
     <string name="app_name">MvvmSampleAppication</string>
     <string name="label_title">今日は何歩歩いた？</string>
     <string name="edit_step">歩数を入力</string>
-    <string name="label_step">歩</string>
+    <string name="label_step">歩数</string>
     <string name="resist">登録</string>
     <string name="menu_label_add_record">記録を追加</string>
+    <string name="title_activity_log_item">LogItemActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="label_date">日付</string>
+    <string name="select_date">日付を選ぶ</string>
+    <string name="label_sentiment">気分</string>
+    <string name="level_normal">普通</string>
+    <string name="level_good">頑張った</string>
+    <string name="level_bad">悪い</string>
+    <string name="label_weather">天気</string>
 </resources>

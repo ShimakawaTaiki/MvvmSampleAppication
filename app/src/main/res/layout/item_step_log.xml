@@ -1,34 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="この日は"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/step_text_view"/>
+    <data>
+        <variable
+            name="stepLog"
+            type="com.example.mvvmsampleappication.data.StepCountLog" />
+    </data>
 
-    <TextView
-        android:id="@+id/step_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="123456"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="歩 歩きました"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/step_text_view"/>
+        <TextView
+            android:id="@+id/label_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stepLog.date}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/weather_image_view"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/level_image_view"
+            tools:text="2019/06/11" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/weather_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@{stepLog.weather}"
+            app:layout_constraintStart_toEndOf="@id/label_date"
+            app:layout_constraintTop_toTopOf="@id/label_date"
+            app:layout_constraintBottom_toBottomOf="@id/label_date"
+            tools:src="@drawable/ic_cloud_gley_24dp" />
+
+        <ImageView
+            android:id="@+id/level_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@{stepLog.level}"
+            app:layout_constraintBottom_toBottomOf="@id/step_text_view"
+            app:layout_constraintEnd_toStartOf="@id/step_text_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/step_text_view"
+            tools:src="@drawable/ic_sentiment_neutral_green_24dp" />
+
+        <TextView
+            android:id="@+id/step_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{Integer.toString(stepLog.step)}"
+            android:textSize="24sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintStart_toEndOf="@id/level_image_view"
+            app:layout_constraintTop_toBottomOf="@id/label_date"
+            tools:text="12345" />
+
+        <TextView
+            android:id="@+id/label_log_suffix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="歩 歩きました"
+            app:layout_constraintStart_toEndOf="@id/step_text_view"
+            app:layout_constraintTop_toTopOf="@id/step_text_view"
+            app:layout_constraintBottom_toBottomOf="@id/step_text_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

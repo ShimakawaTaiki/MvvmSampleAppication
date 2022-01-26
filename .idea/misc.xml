@@ -4,8 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_add_white_24dp.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_cloud_gley_24dp.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_flare_red_24dp.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_grain_gley_24dp.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_iconmonstr_umbrella_1.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_iconmonstr_weather_64.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_sentiment_dissatisified_black_24dp.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_sentiment_neutral_green_24dp.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_sentiment_very_satisfied_pink_24dp.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/drawable/ic_wb_sunny_yellow_24dp.xml" value="0.12129629629629629" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/layout/activity_log_item.xml" value="0.1" />
         <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/layout/content_log_item.xml" value="0.27314814814814814" />
         <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/layout/dialog_input.xml" value="0.1" />
+        <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/layout/fragment_log_input.xml" value="0.264" />
         <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/layout/item_step_log.xml" value="0.264" />
         <entry key="..\:/Users/taiki/AndroidStudioProjects/MvvmSampleApplication/app/src/main/res/menu/main_menu.xml" value="0.264" />
       </map>

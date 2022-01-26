@@ -10,7 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MvvmSampleAppication">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.activity.logitem.LogItemActivity"
+            android:exported="false"
+            android:label="@string/title_activity_log_item"
+            android:theme="@style/Theme.MvvmSampleAppication.NoActionBar" />
+        <activity
+            android:name=".view.activity.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
